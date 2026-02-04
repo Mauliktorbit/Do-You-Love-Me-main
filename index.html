@@ -29,6 +29,29 @@
     overflow: hidden;
     color: black;
   }
+  .og-credit {
+  position: fixed;
+  bottom: 12px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 999;
+}
+
+.og-credit a {
+  font-size: 20px;
+  color: #eb8110;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.og-credit a:hover {
+  text-decoration: underline;
+  color: #e9a256;
+}
+
   #container {
     width: 80%;
     margin: 20px auto;
@@ -195,6 +218,16 @@
   .swal2-styled.swal2-confirm, .swal2-styled.swal2-cancel{position: relative;background-color: #4839eb;color: #fff;border-radius:18px;z-index: 1;transition: all 0.2s;}
 </style>
 <body>
+  <!-- OG Creator Credit -->
+<div class="og-credit">
+  OG Creator · 
+  <a 
+    href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fthe_coding_mann%2F%3Figsh%3DMXhlM2phYW15dWRteg%253D%253D&is_from_rle" 
+    target="_blank">
+    @The_Coding_Mann
+  </a>
+</div>
+
   <audio src="./assets/foreveryoung.mp3" id="linkmp3" class="sembunyi"></audio>
   <div class="overlay">
     <div class="loading-message">Hey you!<br>Please wait...</div>
