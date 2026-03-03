@@ -29,6 +29,41 @@
     height: 100vh;
     overflow: hidden;
     color: black;
+
+  }
+
+  body {
+    animation: heartbeatBg 4s ease-in-out infinite;
+  }
+
+  @keyframes heartbeatBg {
+
+    0%,
+    100% {
+      background-color: #000;
+    }
+
+    50% {
+      background-color: #1a001a;
+    }
+  }
+
+  .lovein {
+    animation: pulseLove 1.5s infinite;
+  }
+
+  @keyframes pulseLove {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
   }
 
   #container {
@@ -38,6 +73,23 @@
     margin-top: 150px;
     color: black;
   }
+
+  h1 {
+    text-shadow: 0 0 10px rgba(255, 192, 203, 0.6),
+      0 0 20px rgba(255, 105, 180, 0.4);
+    animation: glowText 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glowText {
+    from {
+      text-shadow: 0 0 10px #ff99cc;
+    }
+
+    to {
+      text-shadow: 0 0 25px #ff3399;
+    }
+  }
+
 
   @media screen and (max-width: 400px) {
     #container {
@@ -599,28 +651,34 @@
   }
 
 
-.og-credit {
-  position: fixed;
-  bottom: 10%;
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
-  font-family: 'Inter', sans-serif;
-  color: rgba(255, 255, 255, 0.7);
-  z-index: 999;
-}
+  .og-credit {
+    position: fixed;
+    bottom: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 999;
+  }
 
-.og-credit a {
-  color: #f19244;
-  text-decoration: none;
-  font-weight: 600;
-}
+  .og-credit a {
+    color: #f19244;
+    text-decoration: none;
+    font-weight: 600;
+  }
 
-.og-credit a:hover {
-  text-decoration: underline;
-  color: #ffc1dd;
-}
-  
+  .og-credit a:hover {
+    text-decoration: underline;
+    color: #ffc1dd;
+  }
+
+  @keyframes fallHeart {
+    to {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
 </style>
 
 <body>
@@ -658,7 +716,12 @@
           <img src="./assets/pusn.gif" />
         </div>
         <h1 id="teks1" class="scale0 quicksand" style="font-size: 20px;">
-          Helloo You 🫢<br><br> >>>>
+          Hey you... 🥺💙<br><br>
+          I’ve been meaning to tell you something from my heart...<br><br>
+          <!-- Click here what my heart says 💌 -->
+          <span style="font-size:18px; display:block; margin-top:15px;">
+            Touch here… something special awaits 💖
+          </span>
         </h1>
       </div>
 
@@ -670,7 +733,9 @@
           <img id="stikerDua3" class="sembunyi" src="./assets/ngumpet.gif" />
         </div>
         <h1 id="teks2" class="scale0 quicksand" style="font-size: 19px;">
-          Do you love me? 🫣
+          Can I ask you something very special? 🥹💖<br><br>
+          Do you... love me? 💌
+
         </h1>
         <div id="Tombol" style="opacity:0;transform: scale(0)">
           <a id="By" onClick="swiper.slideNext();">Love</a>
@@ -693,15 +758,51 @@
         <div id="scroll-container" class="blocktext">
           <h1 id="teks3" class="scale0 quicksand" style="font-size: 17px;font-weight:400">
             <span id="subteks2a">
-              <b>Waaa...</b> Anyway, I don't want to know,<br>
-              you must love me!! 😝
+              <b>Bhumika... 🥺💙</b><br><br>
+
+              I still remember 12th December 2021... 🗓️✨<br><br>
+
+              The first time I saw you,<br>
+              my heart skipped a beat 💓<br><br>
+
+              I didn’t know why...<br>
+              but something felt different that day 💫
             </span>
+
             <span id="subteks2b">
-              <b>Because... 🫣💐</b>
+              <b>And now in 2026... 🫶</b><br><br>
+
+              4 years passed...<br>
+              life changed... time moved on...<br><br>
+
+              But when we talked again after so long...<br><br>
+
+              My heart beat exactly the same way 🥺💓<br><br>
+
+              That same nervous feeling...<br>
+              that same warmth...<br><br>
+
+              And that’s when I realized...<br>
+              maybe my heart never forgot you 💖
             </span>
           </h1>
+
           <h1 id="teksTerakhir" class="sembunyi">
-            I loooove <b>loveee loveee<br>loveee</b> sooo sooo much<br>youuuu!!!<br>🥹🥹💞💞🫶🫶🫶
+            Bhumika... 💙<br><br>
+
+            From 2021 to 2026...<br>
+            my feelings didn’t change.<br><br>
+
+            Time passed...<br>
+            but my heart stayed the same 🥺<br><br>
+
+            And today I just want to say...<br><br>
+
+            I don’t just like you.<br>
+            I truly love you 💖✨<br><br>
+
+            Not just for a moment...<br>
+            but in every heartbeat.
           </h1>
           <h1 id="teksTambahan" class="sembunyi">
             <span id="teksLove">Iloveyouuuu</span>
@@ -878,7 +979,16 @@
 
     document.getElementById("loveIn").onclick = function () {
       if (sudahKlik) {
+        audio.volume = 0;
         audio.play();
+
+        let fadeMusic = setInterval(() => {
+          if (audio.volume < 0.6) {
+            audio.volume += 0.05;
+          } else {
+            clearInterval(fadeMusic);
+          }
+        }, 200);
         document.querySelector(".overlay").style.display = "none";
         stiker1.classList.add("scale1");
         teks1.classList.add("scale1");
@@ -892,12 +1002,18 @@
 
     function falling() {
       const heart = document.createElement("div");
-      heart.innerHTML = "<svg class='line spin' style='opacity:.5;z-index:100;stroke:#FFC2B8' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g transform='translate(2.550170, 3.550158)'><path d='M0.371729633,8.89614246 C-0.701270367,5.54614246 0.553729633,1.38114246 4.07072963,0.249142462 C5.92072963,-0.347857538 8.20372963,0.150142462 9.50072963,1.93914246 C10.7237296,0.0841424625 13.0727296,-0.343857538 14.9207296,0.249142462 C18.4367296,1.38114246 19.6987296,5.54614246 18.6267296,8.89614246 C16.9567296,14.2061425 11.1297296,16.9721425 9.50072963,16.9721425 C7.87272963,16.9721425 2.09772963,14.2681425 0.371729633,8.89614246 Z'></path><path d='M13.23843,4.013842 C14.44543,4.137842 15.20043,5.094842 15.15543,6.435842'></path></g></svg>";
-      heart.className = "heart-icon";
-      heart.style.left = (Math.random() * 95) + "vw";
-      heart.style.animationDuration = (Math.random() * 3) + 2 + "s";
+      heart.innerHTML = ["💖", "💘", "💞", "🩷", "❤️"][Math.floor(Math.random() * 5)];
+      heart.style.position = "fixed";
+      heart.style.top = "-10px";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+      heart.style.animation = "fallHeart linear 1";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
       document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
     }
+
+
     setInterval(function () {
       var heartArr = document.querySelectorAll(".heart-icon");
       if (heartArr.length > 100) {
@@ -1028,3 +1144,16 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
